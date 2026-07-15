@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3 - Colors & Backgrounds</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7fafc;
+            color: #2d3748;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 40px;
+            color: #4a5568;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto 40px auto;
+            padding: 20px;
+        }
+
+        .box {
+            width: 200px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+            text-align: center;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        
+        .box-hex {
+            background-color: #3182ce; 
+        }
+
+        .box-rgb {
+            background-color: rgb(48, 150, 100); 
+        }
+
+        .box-rgba {
+            
+            background-color: rgba(229, 62, 62, 0.6); 
+        }
+
+        .box-hsl {
+            background-color: hsl(280, 60%, 50%); 
+        }
+
+        
+        .gradient-horizontal {
+            
+            background-image: linear-gradient(to right, #ed64a6, #ecc94b);
+        }
+
+        .gradient-angle {
+         
+            background-image: linear-gradient(45deg, #4fd1c5, #2b6cb0);
+        }
+
+        .gradient-radial {
+           
+            background-image: radial-gradient(circle, #f6e05e, #dd6b20);
+        }
+
+        
+        .parallax-section {
+            
+            background-image: url('https://picsum.photos/1920/1080'); 
+            
+            height: 500px; 
+            
+            background-size: cover;          
+            background-position: center;      
+            background-attachment: fixed;   
+            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .parallax-section h1 {
+            font-size: 3rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            margin: 0;
+        }
+
+        .parallax-section p {
+            font-size: 1.5rem;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+        }
+
+        
+        .spacer {
+            height: 600px;
+            background-color: #edf2f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #718096;
+        }
+    </style>
+</head>
+<body>
+
+    <h2> أنظمة ألوان مختلفة (HEX, RGB, RGBA, HSL)</h2>
+    <div class="container">
+        <div class="box box-hex">HEX<br>#3182ce</div>
+        <div class="box box-rgb">RGB<br>rgb(48, 150, 100)</div>
+        <div class="box box-rgba">RGBA<br>rgba(229, 62, 62, 0.6)</div>
+        <div class="box box-hsl">HSL<br>hsl(280, 60%, 50%)</div>
+    </div>
+
+    <hr>
+
+    <h2>  تدرجات لونية (Gradients)</h2>
+    <div class="container">
+        <div class="box gradient-horizontal">أفقي<br>Horizontal</div>
+        <div class="box gradient-angle">بزاوية 45°<br>Angle 45deg</div>
+        <div class="box gradient-radial">دائري<br>Radial</div>
+    </div>
+
+    <hr>
+
+    <h2> خلفية ثابتة (background: cover + fixed)</h2>
+    <section class="parallax-section">
+        <h1>خلفية ثابتة مدهشة!</h1>
+        <p>جرب النزول والطلوع بالصفحة لترى كيف تثبت الصورة بمكانها.</p>
+    </section>
+
+    <div class="spacer">
+        <p>مساحة فارغة إضافية لتمكين التمرير (Scroll Down) لأعلى ولأسفل ↕</p>
+    </div>
+
+</body>
+</html>
