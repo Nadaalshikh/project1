@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 7 - Flexbox Layouts</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7fafc;
+            color: #2d3748;
+            padding-bottom: 60px;
+        }
+
+        /* 1. Navbar باستخدام flexbox (اللوغو يسار، والروابط يمين) */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #2b6cb0;
+            padding: 15px 30px;
+            color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .navbar-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            order: 2; /* لنقل اللوغو إلى جهة اليسار في المتصفح العربي (RTL) */
+        }
+
+        .navbar-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            order: 1; /* لنقل الروابط إلى جهة اليمين */
+        }
+
+        .navbar-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+
+        .navbar-links a:hover {
+            opacity: 0.8;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #2d3748;
+            border-right: 4px solid #2b6cb0;
+            padding-right: 10px;
+        }
+
+        /* 2. حاوية البطاقات الستة مع استخدام flex-wrap للتكيف مع الشاشة */
+        .cards-grid {
+            display: flex;
+            flex-wrap: wrap; /* يسمح بنزول البطاقات لسطر جديد عند صغر الشاشة */
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            flex: 1 1 calc(33.333% - 20px); /* ثلاث بطاقات في السطر للشاشات الكبيرة */
+            min-width: 250px; /* لضمان عدم صغر حجم البطاقة بشكل مفرط */
+            background-color: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        /* 3. توسيط صورة ونص بالكامل داخل بطاقة باستخدام Flexbox */
+        .centered-card {
+            display: flex;
+            flex-direction: column; /* ترتيب المحتوى رأسياً */
+            justify-content: center; /* التوسيط الرأسي */
+            align-items: center;     /* التوسيط الأفقي */
+            background-color: white;
+            border: 2px dashed #4a5568;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .centered-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .centered-card h3 {
+            margin-bottom: 10px;
+            color: #2d3748;
+        }
+
+        /* 4. تصميم هيدر وسلايد بار ومحتوى رئيسي (layout) */
+        .layout-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .layout-header {
+            background-color: #4a5568;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 6px;
+        }
+
+        .layout-body {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap; /* يتكيف في الشاشات الصغيرة بنزول السايدبار أسفل المحتوى */
+        }
+
+        .layout-sidebar {
+            flex: 1 1 250px; /* عرض السايدبار */
+            background-color: #edf2f7;
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .layout-main {
+            flex: 3 1 500px; /* المحتوى الرئيسي يأخذ المساحة الأكبر */
+            background-color: white;
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .layout-sidebar ul {
+            list-style: none;
+            padding-top: 10px;
+        }
+
+        .layout-sidebar li {
+            padding: 8px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-logo">لوغو</div>
+        <ul class="navbar-links">
+            <li><a href="#">الرئيسية</a></li>
+            <li><a href="#">المقالات</a></li>
+            <li><a href="#">تواصل معنا</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+
+        <h2>البطاقات المتجاوبة (flex-wrap)</h2>
+        <div class="cards-grid">
+            <div class="card"><h3>البطاقة 1</h3><p>محتوى تجريبي مرن للتطبيق.</p></div>
+            <div class="card"><h3>البطاقة 2</h3><p>محتوى تجريبي مرن للتطبيق.</p></div>
+            <div class="card"><h3>البطاقة 3</h3><p>محتوى تجريبي مرن للتطبيق.</p></div>
+            <div class="card"><h3>البطاقة 4</h3><p>محتوى تجريبي مرن للتطبيق.</p></div>
+            <div class="card"><h3>البطاقة 5</h3><p>محتوى تجريبي مرن للتطبيق.</p></div>
+            <div class="card"><h3>البطاقة 6</h3><p>محتوى تجريبي مرن للتطبيق.</p></div>
+        </div>
+
+        <h2>توسيط كامل للعناصر</h2>
+        <div class="centered-card">
+            <img src="https://picsum.photos/150" alt="صورة الملف الشخصي">
+            <h3> ندى الشيخ </h3>
+            <p>مطور واجهات مستخدم متمكن، تم توسيط هذا المحتوى بالكامل أفقياً ورأسياً بمرونة تامة.</p>
+        </div>
+
+        <h2>الهيكل العام (Layout)</h2>
+        <div class="layout-section">
+            <header class="layout-header">رأس الصفحة العام (Header)</header>
+            <div class="layout-body">
+                <aside class="layout-sidebar">
+                    <h3>القائمة الجانبية</h3>
+                    <ul>
+                        <li>الخيار الأول</li>
+                        <li>الخيار الثاني</li>
+                        <li>الخيار الثالث</li>
+                    </ul>
+                </aside>
+                <main class="layout-main">
+                    <h3>المحتوى الرئيسي للقسم (Main Content)</h3>
+                    <p style="margin-top: 10px; line-height: 1.6;">هذا الجزء مخصص لعرض المحتوى الأساسي والتدوينات. بفضل مرونة الـ Flexbox، سيتناسب حجم هذا الجزء تلقائياً وبشكل متناسق بجانب القائمة الجانبية في الشاشات العريضة، وينزل أسفلها بسلاسة تامة على الأجهزة المحمولة.</p>
+                </main>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
